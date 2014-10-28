@@ -9,14 +9,15 @@
           %span.icon-bar/
           %span.icon-bar/
           %span.icon-bar/
-        %a.navbar-brand{:href => "#"}
-          Brand
+        = link_to root_path do
+          %a.navbar-brand
+            Air Pollution
       //Collect the nav links, forms, and other content for toggling
       .collapse.navbar-collapse#bs-example-navbar-collapse-1
         %ul.nav.navbar-nav
-          %li.active
-            %a
-              Link
-          %li
-            %a
-              Link
+          = content_tag :li, :class => (current_page?(root_path) ? 'active' : '') do
+            = link_to 'Home', root_path
+          = content_tag :li, :class => (current_page?(graphs_path) ? 'active' : '') do
+            = link_to 'Graphs', graphs_path
+          = content_tag :li, :class => (current_page?(rawdata_path) ? 'active' : '') do
+            = link_to 'Raw Data', rawdata_path
